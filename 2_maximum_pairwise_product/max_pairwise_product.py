@@ -1,15 +1,22 @@
 # python3
-from random import randint
-
+# python3
 def max_pairwise_product(numbers):
     n = len(numbers)
-    max_product = 0
-    for first in range(n):
-        for second in range(first + 1, n):
-            max_product = max(max_product,
-                numbers[first] * numbers[second])
+    max1 = 0
+    index_max1 = 0
+    max2 = 0
+    index_max2 = 0
+    for index in range(n):
+        if(numbers[index]) > max1:
+            index_max1 = index
+            max1 = numbers[index]
 
-    return max_product
+    for index in range(n):
+        if(numbers[index]) > max2 and index_max1 != index:
+            index_max2 = index
+            max2 = numbers[index]
+
+    return numbers[index_max1] * numbers[index_max2] 
 
 if __name__ == '__main__':
     input_n = int(input())
